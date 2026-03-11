@@ -3,18 +3,25 @@
 
 #define GRN "\033[32m"
 #define RED "\033[31m"
+#define LBLE "\033[36m"
 #define RESET "\033[0m"
 #define STR_SIZE 128
 
 
-/* Структура узла односвязного списка */
+/* Структура узла односвязного списка-словаря */
 typedef struct Node {
-    char *word; /* Память будет выделяться в момент создания узла */
+    char *word;
     int count;
     struct Node *next;
 } Node;
 
-/* Прототипы функций для списка */
+/* Структура узла односвязного списка чисел */
+typedef struct Node_n {
+    int num;
+    struct Node_n *next;
+} Node_n;
+
+/* Прототипы функций для списка-словаря */
 Node *create_node(const char *new_word);
 void add_first(Node **head, Node *new_node);
 void add_before(Node **head, Node *next_n, Node *new_node);
@@ -22,9 +29,15 @@ Node *find_place(Node *head, const char *new_word);
 Node *find(Node *head, const char *new_word);
 void remove_item(Node *prev);
 
+/* Прототипы функций для списка чисел */
+Node_n *create_node_(int num);
+void add_first_(Node_n **head, Node_n *new_node);
+void add_after_(Node_n *prev, Node_n *new_node);
+void add_last_(Node_n **head, Node_n *new_node);
+
 /* Вспомогательные функции */
-void random_cyrillic_letter(char *buffer);
 void print_color(const char *str, const char *color);
 void pause();
+void random_word(char *buffer, int size);
 
 #endif

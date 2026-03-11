@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "linked_list.h"
 
-/* Создает узел списка */
+/* Создает узел списка-словаря */
 Node *create_node(const char *new_word)
 {
     /* Выделяем память под узел */
@@ -106,27 +106,64 @@ void print_color(const char *str, const char *color)
     printf("%s%s%s", color, str, RESET);
 }
 
-void random_cyrillic_letter(char *buffer)
-{
-    int pos = rand() % 32;
-
-    if (pos < 16) {
-        buffer[0] = 208;
-        buffer[1] = 176 + pos;
-    } else {
-        buffer[0] = 209;
-        buffer[1] = 128 + (pos - 16);
-    }
-
-    buffer[2] = '\0';
-
-    return;
-}
-
 void pause()
 {
     printf("\nНажмите Enter для перехода к следующему заданию...");
     getchar();
     system("cls");
     return;
+}
+
+void random_word(char *buffer, int size)
+{
+    if (size < 2) return;
+
+    int a = 97, b = 122;
+    int i;
+    for (i = 0; i < size-1; i++) {
+        buffer[i] = a + rand() % (b - a + 1);
+    }
+    buffer[i] = '\0';
+    return;
+}
+
+/* Создает узел списка чисел */
+Node_n *create_node_(int new_num)
+{
+    /* Выделяем память под узел */
+    Node_n *node = malloc(sizeof(Node_n));
+    if (!node) return NULL;
+
+    node->num = new_num;
+    node->next = NULL;
+
+    return node;
+}
+
+/* Добавляет узел в голову списка */
+void add_first_(Node_n **head, Node_n *new_node)
+{
+    new_node->next = *head;
+    *head = new_node;
+}
+
+/* Добавляет узел после узла prev */
+void add_after_(Node_n *prev, Node_n *new_node)
+{
+    new_node->next = prev->next;
+    prev->next = new_node;
+}
+
+/* Добавляет узел в конец списка */
+void add_last_(Node_n **head, Node_n *new_node)
+{
+    if (*head == NULL) {
+        add_first_(head, new_node);
+    } else {
+        Node_n *pp = *head;
+        while (pp->next != NULL)
+            pp = pp->next;
+
+        add_after_(pp, new_node);
+    }
 }
