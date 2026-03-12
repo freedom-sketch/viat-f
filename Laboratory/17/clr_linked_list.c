@@ -69,11 +69,12 @@ void print_list(Node *list, int head_idx)
     }
 
     int current = head_idx;
+    printf("[ ");
     do {
         printf("%lld ", list[current].data);
         current = list[current].next;
     } while (current != head_idx);
-    printf("\n");
+    printf("]\n");
 }
 
 void print_color(const char *str, const char *color)

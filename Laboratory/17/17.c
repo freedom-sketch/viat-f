@@ -21,8 +21,9 @@ int main(void)
         print_list(list, head);
 
         printf("\nВыберите действие:\n");
-        print_color("[1] Добавить в конец списка\n", LBLE);
-        print_color("[2] Взять с конца списка\n", LBLE);
+        print_color("[1] Добавить в конец списка\n"
+                    "[2] Взять с конца списка\n"
+                    "[3] Выйти\n", LBLE);
 
         printf("\nДействие: ");
 
@@ -45,17 +46,21 @@ int main(void)
             }
             break;
         
-            case '2':
-                system("cls");
-                long long pop_num = pop(list, &head);
-                if (pop_num != LONG_LONG_MAX) {
-                    print_color("Было взято число ", LBLE);
-                    printf("%lld\n\n", pop_num);
-                    pause();
-                } else {
-                    print_color("Список пуст\n\n", RED);
-                    pause();
-                }
+        case '2':
+            system("cls");
+            long long pop_num = pop(list, &head);
+            if (pop_num != LONG_LONG_MAX) {
+                print_color("Было взято число ", LBLE);
+                printf("%lld\n\n", pop_num);
+                pause();
+            } else {
+                print_color("Список пуст\n\n", RED);
+                pause();
+            }
+            break;
+
+        case '3':
+            exit(0);
         
         default:
             break;
