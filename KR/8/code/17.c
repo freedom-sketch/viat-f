@@ -5,14 +5,14 @@
 
 int main(void)
 {
-    system("chcp 65001 > nil");
+    system(SET_UTF8);
 
     static Node list[SIZE];
     int head = -1;
 
     bool run = true;
     while (run) {
-        system("cls");
+        system(CLEAR);
 
         print_color("Реализация элементарных структур данных "
             "на основе статической памяти\n\n", GRN);
@@ -28,14 +28,13 @@ int main(void)
         printf("\nДействие: ");
 
         int action = getchar();
-
         switch (action)
         {
         case '1':
-            system("cls");
+            system(CLEAR);
             char num[100];
 
-            printf("Введите число (не более %lld): ", LONG_LONG_MAX);
+            printf("Введите число (не более %lld): ", LLONG_MAX);
 
             scanf("%s", num);
 
@@ -47,9 +46,9 @@ int main(void)
             break;
         
         case '2':
-            system("cls");
+            system(CLEAR);
             long long pop_num = pop(list, &head);
-            if (pop_num != LONG_LONG_MAX) {
+            if (pop_num != LLONG_MAX) {
                 print_color("Было взято число ", LBLE);
                 printf("%lld\n\n", pop_num);
                 pause();

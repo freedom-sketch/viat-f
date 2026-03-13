@@ -1,6 +1,14 @@
 #ifndef CIRCULAR_SINGLY_LINKED_LIST
 #define CIRCULAR_SINGLY_LINKED_LIST
 
+#if defined(_WIN32) || defined(_WIN64)
+    #define SET_UTF8 "chcp 65001 > nul"
+    #define CLEAR "cls"
+#elif defined(__linux__)
+    #define SET_UTF8 "echo"
+    #define CLEAR "clear"
+#endif
+
 #define GRN "\033[32m"
 #define RED "\033[31m"
 #define LBLE "\033[36m"

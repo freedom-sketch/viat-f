@@ -1,18 +1,19 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "linked_list.h"
 
 /* Создает узел списка-словаря */
 Node *create_node(const char *new_word)
 {
     /* Выделяем память под узел */
-    Node *node = malloc(sizeof(Node));
+    Node *node = (Node *)malloc(sizeof(Node));
     if (!node) return NULL;
 
     size_t len = strlen(new_word);
     /* Выделяем память, необходимую под слово */
-    node->word = malloc(len + 1);
+    node->word = (char *)malloc(len + 1);
     if (!node->word) {
         free(node);
         return NULL;
@@ -106,12 +107,18 @@ void print_color(const char *str, const char *color)
     printf("%s%s%s", color, str, RESET);
 }
 
-void pause()
+void pause(bool _exit)
 {
+    fflush(stdin);
+
+    if (_exit) {
+        printf("\nНажмите Enter для выхода...");
+        getchar();
+        exit(0);
+    }
+
     printf("\nНажмите Enter для перехода к следующему заданию...");
     getchar();
-    system("cls");
-    return;
 }
 
 void random_word(char *buffer, int size)
@@ -124,7 +131,6 @@ void random_word(char *buffer, int size)
         buffer[i] = a + rand() % (b - a + 1);
     }
     buffer[i] = '\0';
-    return;
 }
 
 /* Создает узел списка чисел */
@@ -138,6 +144,24 @@ Node_n *create_node_(int new_num)
     node->next = NULL;
 
     return node;
+}
+
+FILE *create_file(const char *f_name)
+{
+    FILE *f = fopen(f_name, "w");
+    return f;
+}
+
+void fill_txt_file(FILE* f)
+{
+    int num = MIN_NUM_WRD + rand() % (MAX_NUM_WRD - MIN_NUM_WRD + 1);
+    for (int i = 0; i < num; i++) {
+        int word_size = A + rand() % (B - A + 1);
+        char word[word_size];
+
+        random_word(word, word_size);
+        fprintf(f, "%s ", word);
+    }
 }
 
 /* Добавляет узел в голову списка */

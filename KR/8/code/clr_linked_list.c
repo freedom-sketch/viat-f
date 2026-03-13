@@ -42,7 +42,7 @@ int push(Node *list, int *head, long long data)
 long long pop(Node *list, int *head)
 {
     if (*head == -1) {
-        return LONG_LONG_MAX;
+        return LLONG_MAX;
     }
 
     int head_idx = *head;

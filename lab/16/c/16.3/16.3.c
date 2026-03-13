@@ -2,11 +2,10 @@
 #include <time.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "linked_list.h"
 
 #define FILE_NAME "text.txt"
-#define A 2 /* Минимальный размер слова в символах */
-#define B 30 /* Максимальный размер слова в символах */
 
 /* Обработка слова */
 void process_word(Node **head, const char *word, int *words_count) {
@@ -44,9 +43,48 @@ void task_one(const char *file_name)
     FILE *f = fopen(FILE_NAME, "r");
     if (f == NULL) {
         print_color("Не удалось прочитать файл " FILE_NAME "\n", RED);
-        printf("\nНажмите Enter для выхода...");
-        getchar();
-        exit(1);
+
+        printf("Создать %s со случайными словами? (y/n): ", FILE_NAME);
+        bool wait_answ = true;
+        while (wait_answ) {
+            printf("\rСоздать %s со случайными словами? (y/n): ", FILE_NAME);
+
+            int answ = getchar();
+            fflush(stdin);
+            switch (answ)
+            {
+            case 'Y':
+            case 'y':
+                wait_answ = false;
+                FILE *f_ = create_file(FILE_NAME);
+                if (f_ == NULL) {
+                    print_color("\nНе удалось создать файл" FILE_NAME, RED);
+                    pause(false);
+                    return;
+                } else {
+                    fill_txt_file(f_);
+                    fclose(f_);
+                    print_color("Файл " FILE_NAME " успешно создан\n", GRN);
+                    f = fopen(FILE_NAME, "r");
+
+                    pause(false);
+                    system(CLEAR);
+                    print_color("Задание 1\n", GRN);
+                    printf("Вывести на экран количество различных "
+                            "слов, т.е. количество элементов списка\n\n");
+                }
+                break;
+            case 'N':
+            case 'n':
+                wait_answ = false;
+                return;
+            default:
+                printf("\033[1F\033[2K");
+                printf("Создать %s со случайными словами? (y/n): ", FILE_NAME);
+                fflush(stdout);
+                break;
+            }
+        }
     }
     
     Node *head = NULL;
@@ -195,20 +233,19 @@ void task_three()
 
 int main(void)
 {
-    system("chcp 65001 > nul");
+    system(SET_UTF8);
 
     task_one(FILE_NAME);
-
-    pause();
+    pause(false);
+    system(CLEAR);
 
     task_two();
-
-    pause();
+    pause(false);
+    system(CLEAR);
 
     task_three();
-
-    printf("\nНажмите Enter для выхода...");
-    getchar();
+    pause(true);
+    system(CLEAR);
 
     return 0;
 }

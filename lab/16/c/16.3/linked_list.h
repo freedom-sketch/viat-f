@@ -1,11 +1,27 @@
 #ifndef LINKED_LIST
 #define LINKED_LIST
 
+#if defined(_WIN32) || defined(_WIN64)
+    #define CLEAR "cls"
+    #define SET_UTF8 "chcp 65001 > nul"
+#elif defined(__linux__)
+    #define SET_UTF8 "echo"
+    #define CLEAR "clear"
+#endif
+
 #define GRN "\033[32m"
 #define RED "\033[31m"
 #define LBLE "\033[36m"
 #define RESET "\033[0m"
 #define STR_SIZE 128
+
+#define A 3 /* Минимальный размер слова в символах */
+#define B 30 /* Максимальный размер слова в символах */
+
+#define MIN_NUM_WRD 10
+#define MAX_NUM_WRD 50
+
+#include <stdbool.h>
 
 
 /* Структура узла односвязного списка-словаря */
@@ -37,7 +53,9 @@ void add_last_(Node_n **head, Node_n *new_node);
 
 /* Вспомогательные функции */
 void print_color(const char *str, const char *color);
-void pause();
+void pause(bool _exit);
 void random_word(char *buffer, int size);
+FILE *create_file(const char *f_name);
+void fill_txt_file(FILE* f);
 
 #endif
