@@ -19,9 +19,11 @@ extern Block *head;
 
 void *mtmalloc(size_t size, const char* file, int line);
 void mtfree(void *memory);
+void *mtrealloc(void *ptr, size_t size, const char* file, int line);
 
 #define malloc(size) mtmalloc(size, __FILE__, __LINE__)
 #define free(ptr) mtfree(ptr)
+#define realloc(ptr, size) mtrealloc(ptr, size, __FILE__, __LINE__)
 
 void __attribute__((destructor)) check_leaks();
 

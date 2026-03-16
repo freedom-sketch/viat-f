@@ -1,7 +1,7 @@
-﻿procedure TaskOne(A: array of integer);
+﻿procedure TaskOne(n: integer);
 begin
-  var arr := ArrRandom(n:=10);
-  Println(A[::-1]);
+  var arr := ArrRandom(n:=n);
+  Println(arr[::-1]);
 end;
 
 procedure TaskTwo(A: array of integer);
@@ -43,5 +43,52 @@ begin
 end;
 
 begin
+  Println('Задание 1');
+  TaskOne(15);
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println();
+  
+  Println('Задание 2');
+  TaskTwo(ArrRandom(15));
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
+  
+  Println('Задание 3');
+  TaskThree(ArrRandom(15));
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
+  
+  Println('Задание 4');
+  TaskFour(ArrRandom(15));
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
+  
+  Println('Задание 5');
+  TaskFive(ArrRandom(15), ReadInteger('Введите число'));
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
+  
+  Println('Задание 6');
+  TaskSix();
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
+  
+  Println('Задание 7');
   TaskSeven();
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
 end.

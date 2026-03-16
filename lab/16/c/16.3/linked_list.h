@@ -22,7 +22,7 @@
 #define MAX_NUM_WRD 50
 
 #include <stdbool.h>
-
+#include <stdio.h>
 
 /* Структура узла односвязного списка-словаря */
 typedef struct Node {

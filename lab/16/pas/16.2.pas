@@ -142,5 +142,38 @@ begin
 end;
 
 begin
+  Println('Задание 1');
+  TaskOne();
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
+  
+  Println('Задание 2');
+  TaskTwo();
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
+  
+  Println('Задание 3');
+  TaskThree();
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
+  
+  Println('Задание 5');
+  TaskFive();
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
+  
+  Println('Задание 6');
   TaskSix();
+  Println();
+  Println('Нажмите Enter...');
+  ReadLn;
+  Println;
 end.
