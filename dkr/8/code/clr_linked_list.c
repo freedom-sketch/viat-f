@@ -3,7 +3,7 @@
 #include <limits.h>
 #include "clr_linked_list.h"
 
-int find_tail(Node *list, int head_idx)
+static int find_tail(Node *list, int head_idx)
 {
     int current = head_idx;
     while (list[current].next != head_idx) {
