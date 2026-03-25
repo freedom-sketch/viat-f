@@ -69,7 +69,7 @@ int main() {
             }
         } else if (state == 1) {
             std::cout << "Просмотр файлов:\n"
-                      << "[1] main.cpp\n"
+                      << "[1] 8.cpp\n"
                       << "[2] clr_linked_list.cpp\n"
                       << "[3] clr_linked_list.hpp\n"
                       << "[4] Назад\n"
@@ -78,9 +78,9 @@ int main() {
             std::cin >> fileChoice;
             
             switch (fileChoice) {
-                case '1': open_file("main.cpp"); break;
-                case '2': open_file("clr_linked_list.cpp"); break;
-                case '3': open_file("clr_linked_list.hpp"); break;
+                case '1': open_file(".\\code\\cpp\\8.cpp"); break;
+                case '2': open_file(".\\code\\cpp\\clr_linked_list.cpp"); break;
+                case '3': open_file(".\\code\\cpp\\clr_linked_list.hpp"); break;
                 case '4': state = 0; break;
             }
         }
