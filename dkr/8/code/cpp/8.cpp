@@ -28,7 +28,7 @@ int main() {
     while (true) {
         std::system(CLEAR);
         if (state == 0) {
-            myList.print_colored("Реализация циклического списка на C++ (Static Memory)\n\n", GRN);
+            myList.print_colored("Реализация элементарных структур данных на основе статической памяти\n\n", GRN);
             std::cout << "Список: ";
             myList.print();
             
