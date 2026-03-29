@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-69e2b33988fbaf38a1e2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "project_3",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "project_3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-project_3-Debug-7931352750a2fdd884fb.json",
+					"name" : "project_3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "project_3_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-project_3_autogen-Debug-6fae48121b708a1abf67.json",
+					"name" : "project_3_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "project_3_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-project_3_autogen_timestamp_deps-Debug-d5f70f75117b9f0c6501.json",
+					"name" : "project_3_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/pokom/OneDrive/College/Practices/viat-f/qt/project_3/build/Desktop_Qt_6_10_2_MinGW_64_bit-u041eu0442u043bu0430u0434u043au0430",
+		"source" : "C:/Users/pokom/OneDrive/College/Practices/viat-f/qt/project_3"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
